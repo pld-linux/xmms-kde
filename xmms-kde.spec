@@ -1,18 +1,17 @@
 # TODO:
 # -separate packages with themes
-%define		beta	beta1
 
 Summary:	XMMS - applet for controlling xmms from the KDE panel
 Summary(pl):	Aplet do kontrolowaniaa xmms z panelu KDE
 Name:		xmms-kde
 Version:	3.1
-Release:	0.%{beta}.1
+Release:	0.1
 Epoch:		1
 License:	GPL v2
 Vendor:		Flo Niebling <tranqlzer@users.sourceforge.net>
 Group:		X11/Applications/Sound
-Source0:	http://dl.sourceforge.net/xmms-kde/%{name}-%{version}%{beta}.tar.gz
-# Source0-md5:	b42a1ecd5d1610609be5bbe13ab0efcd
+Source0:	http://dl.sourceforge.net/xmms-kde/%{name}-%{version}.tar.gz
+# Source0-md5:	b6c2b44b753a565e83e5097e4249226d
 URL:		http://xmms-kde.sourceforge.net/
 BuildRequires:	fam-devel
 BuildRequires:	glib-devel >= 1.2.2
@@ -40,7 +39,7 @@ konieczno¶ci prze³±czania siê na wirtualny pulpit, na którym dzia³a
 XMMS.
 
 %prep
-%setup -q -n %{name}-%{version}%{beta}
+%setup -q -n %{name}-%{version}
 
 %build
 kde_htmldir=%{_htmldir}; export kde_htmldir
