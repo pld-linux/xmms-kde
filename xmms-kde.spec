@@ -1,7 +1,7 @@
 Summary:	XMMS - applet for controlling xmms from the KDE panel.
 Name:		xmms-kde 
 Version:	0.6.5
-Release:	1
+Release:	2
 Epoch:		1
 Source0:	http://prdownloads.sourceforge.net/xmms-kde/%{name}-%{version}.tgz
 URL:		http://xmms-kde.sourceforge.net
@@ -11,7 +11,17 @@ Group(pl):	X11/Zarz±dcy Okien/Narzêdzia
 Vendor:		Flo Niebling <tranqlzer@users.sourceforge.net>
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 License:	GPL
-Requires:	xmms kdelibs >= 2.0 qt >= 2.1.1 
+Requires:	xmms
+Requires:	kdelibs >= 2.0
+Requires:	qt >= 2.1.1 
+BuildRequires:	libstdc++-devel
+BuildRequires:	XFree86-devel
+BuildRequires:	qt-devel
+BuildRequires:	zlib-devel
+BuildRequires:	kdelibs-devel
+BuildRequires:	xmms-devel
+BuildRequires:	libpng-devel
+BuildRequires:	libjpeg-devel
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
@@ -24,39 +34,31 @@ XMMS is running.
 Email (author): tranqlzer@users.sourceforge.net
 
 %prep 
-#rpm does this automaticaly
-#rm -rf $RPM_BUILD_ROOT 
-
-#%setup -a 0
 %setup -q
 
 %build 
-./configure --prefix=%{_prefix} --with-qt-includes=%{_prefix}/include/qt/
+%configure2_13 \
+	--with-qt-includes=%{_includedir}/qt
 
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-   make \
-	prefix=%{?buildroot:%{buildroot}}%{_prefix} \
-	libdir=%{?buildroot:%{buildroot}}%{_libdir} \
-	configdir=%{?buildroot:%{buildroot}}%{_datadir}/xmms-kde \
-	\
-    install 
 
-gzip -9 AUTHORS COPYING  ChangeLog INSTALL README  TODO
+%{__make} install DESTDIR=$RPM_BUILD_ROOT
+
+gzip -9nf AUTHORS ChangeLog INSTALL README  TODO
 
 %clean 
 rm -rf $RPM_BUILD_ROOT 
 
 %files 
 %defattr(644,root,root,755)
-%doc README.gz TODO.gz COPYING.gz AUTHORS.gz INSTALL.gz ChangeLog.gz
+%doc *.gz
 %{_libdir}/libxmmskde.la
 %{_libdir}/libxmmskde.so
 %{_libdir}/libxmmskde.so.1
 %{_libdir}/libxmmskde.so.1.0.0
-%dir %{_datadir}/apps/
 %dir %{_datadir}/apps/xmms-kde
 %{_datadir}/apps/kicker/applets/xmms-kde.desktop
 %{_datadir}/apps/xmms-kde/aluminum25.rc
