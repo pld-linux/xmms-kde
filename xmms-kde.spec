@@ -1,6 +1,6 @@
 Summary:	XMMS - applet for controlling xmms from the KDE panel
 Summary(pl):	Aplet do kontrolowaniaa xmms z panelu KDE
-Name:		xmms-kde 
+Name:		xmms-kde
 Version:	0.6.5
 Release:	3
 Epoch:		1
@@ -15,7 +15,7 @@ BuildRequires:	xmms-devel
 BuildRequires:	libjpeg-devel
 Requires:	xmms
 Requires:	kdelibs >= 2.0
-Requires:	qt >= 2.1.1 
+Requires:	qt >= 2.1.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -33,10 +33,10 @@ Aplet XMMS dla panelu KDE2 (kickera). S³u¿y do kontrolowania XMMS bez
 konieczno¶ci prze³±czania siê na wirtualny pulpit, na którym dzia³a
 XMMS.
 
-%prep 
+%prep
 %setup -q
 
-%build 
+%build
 CXXFLAGS="%{rpmcflags} -fno-exceptions -fno-rtti -fno-implicit-templates"
 %configure2_13 \
 	--with-qt-includes=%{_includedir}/qt
@@ -50,13 +50,13 @@ rm -rf $RPM_BUILD_ROOT
 
 gzip -9nf AUTHORS ChangeLog INSTALL README  TODO
 
-%clean 
-rm -rf $RPM_BUILD_ROOT 
+%clean
+rm -rf $RPM_BUILD_ROOT
 
 %post	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
 
-%files 
+%files
 %defattr(644,root,root,755)
 %doc *.gz
 %{_libdir}/libxmmskde.la
