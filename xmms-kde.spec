@@ -2,7 +2,7 @@ Summary:	XMMS - applet for controlling xmms from the KDE panel
 Summary(pl):	Aplet do kontrolowaniaa xmms z panelu KDE
 Name:		xmms-kde
 Version:	0.6.5
-Release:	3
+Release:	4
 Epoch:		1
 License:	GPL
 Vendor:		Flo Niebling <tranqlzer@users.sourceforge.net>
