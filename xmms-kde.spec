@@ -7,8 +7,6 @@ Epoch:		1
 License:	GPL
 Vendor:		Flo Niebling <tranqlzer@users.sourceforge.net>
 Group:		X11/Applications/Multimedia
-Group(de):	X11/Applikationen/Multimedia
-Group(pl):	X11/Aplikacje/Multimedia
 Source0:	http://prdownloads.sourceforge.net/xmms-kde/%{name}-%{version}.tgz
 URL:		http://xmms-kde.sourceforge.net/
 BuildRequires:	qt-devel
