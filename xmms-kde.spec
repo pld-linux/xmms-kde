@@ -1,44 +1,46 @@
+# TODO:
+# -separate packages with themes
 Summary:	XMMS - applet for controlling xmms from the KDE panel
 Summary(pl):	Aplet do kontrolowaniaa xmms z panelu KDE
 Name:		xmms-kde
-Version:	0.6.5
-Release:	4
+Version:	3.0.0
+Release:	1
 Epoch:		1
-License:	GPL
+License:	GPL v2
 Vendor:		Flo Niebling <tranqlzer@users.sourceforge.net>
 Group:		X11/Applications/Multimedia
-Source0:	http://prdownloads.sourceforge.net/xmms-kde/%{name}-%{version}.tgz
+Source0:	http://prdownloads.sourceforge.net/xmms-kde/xmmskde-%{version}.tar.gz
 URL:		http://xmms-kde.sourceforge.net/
-BuildRequires:	qt-devel
-BuildRequires:	kdelibs-devel
-BuildRequires:	xmms-devel
+BuildRequires:	glib-devel >= 1.2.2
+BuildRequires:	gtk+-devel >= 1.2.2
 BuildRequires:	libjpeg-devel
-Requires:	xmms
-Requires:	kdelibs >= 2.0
-Requires:	qt >= 2.1.1
+BuildRequires:	kdelibs-devel >= 3.0
+BuildRequires:	qt-devel >= 2.1.1
+BuildRequires:	smpeg-devel >= 0.4.2
+BuildRequires:	xmms-devel >= 1.2.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
 
 %description
-XMMS panel applet for the KDE2 panel (kicker). It is used to be able
+XMMS panel applet for the KDE panel (kicker). It is used to be able
 to control XMMS without having to switch to the virtual desktop where
 XMMS is running.
 
 Email (author): tranqlzer@users.sourceforge.net
 
 %description -l pl
-Aplet XMMS dla panelu KDE2 (kickera). S³u¿y do kontrolowania XMMS bez
+Aplet XMMS dla panelu KDE (kickera). S³u¿y do kontrolowania XMMS bez
 konieczno¶ci prze³±czania siê na wirtualny pulpit, na którym dzia³a
 XMMS.
 
 %prep
-%setup -q
+%setup -q -n xmmskde-3.0
 
 %build
 CXXFLAGS="%{rpmcflags} -fno-exceptions -fno-rtti -fno-implicit-templates"
-%configure2_13 \
+%configure \
 	--with-qt-includes=%{_includedir}/qt
 
 %{__make}
@@ -48,8 +50,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-gzip -9nf AUTHORS ChangeLog INSTALL README  TODO
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -58,9 +58,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
-%{_libdir}/libxmmskde.la
-%{_libdir}/libxmmskde.so.*.*
+%doc AUTHORS ChangeLog NEWS README TODO doc/themes.txt
+%{_libdir}/kde3/libxmmskde.la
+%{_libdir}/kde3/libxmmskde.so.*.*
 %dir %{_datadir}/apps/xmms-kde
 %{_datadir}/apps/kicker/applets/xmms-kde.desktop
 %{_datadir}/apps/xmms-kde/*
+%{_datadir}/doc/HTML/en/xmmskde/*
