@@ -8,7 +8,7 @@ Release:	3
 Epoch:		1
 License:	GPL v2
 Vendor:		Flo Niebling <tranqlzer@users.sourceforge.net>
-Group:		X11/Applications/Multimedia
+Group:		X11/Applications/Sound
 Source0:	http://prdownloads.sourceforge.net/xmms-kde/xmmskde-%{version}.tar.gz
 Patch0:		%{name}-no-version.patch
 URL:		http://xmms-kde.sourceforge.net/
