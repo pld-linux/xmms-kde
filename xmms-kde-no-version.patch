@@ -9,7 +9,7 @@
  
  # the library search path. 
 -libxmmskde_la_LDFLAGS = $(KDE_RPATH) $(all_libraries) @SMPEG_LIBS@ @XMMS_LIBS@ -version-info 1:0:0 -module  -no-undefined -version-info $(SOMAJOR):$(SOMINOR):$(SOSUBMINOR) 
-+libxmmskde_la_LDFLAGS = $(KDE_RPATH) $(all_libraries) $(SMPEG_LIBS) $(XMMS_LIBS) -module  -no-undefined
++libxmmskde_la_LDFLAGS = $(KDE_RPATH) $(all_libraries) $(SMPEG_LIBS) $(XMMS_LIBS) -module -avoid-version -no-undefined
  
  # the libraries to link against.
  libxmmskde_la_LIBADD   = $(LIB_KFILE) $(LIB_KDEUI)
@@ -20,7 +20,7 @@
  
  # the library search path. 
 -libxmmskde_la_LDFLAGS = $(KDE_RPATH) $(all_libraries) @SMPEG_LIBS@ @XMMS_LIBS@ -version-info 1:0:0 -module  -no-undefined -version-info $(SOMAJOR):$(SOMINOR):$(SOSUBMINOR) 
-+libxmmskde_la_LDFLAGS = $(KDE_RPATH) $(all_libraries) @SMPEG_LIBS@ @XMMS_LIBS@ -module  -no-undefined
++libxmmskde_la_LDFLAGS = $(KDE_RPATH) $(all_libraries) @SMPEG_LIBS@ @XMMS_LIBS@ -module -avoid-version -no-undefined
  
  # the libraries to link against.
  libxmmskde_la_LIBADD = $(LIB_KFILE) $(LIB_KDEUI)
