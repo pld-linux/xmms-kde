@@ -10,6 +10,7 @@ License:	GPL v2
 Vendor:		Flo Niebling <tranqlzer@users.sourceforge.net>
 Group:		X11/Applications/Multimedia
 Source0:	http://prdownloads.sourceforge.net/xmms-kde/xmmskde-%{version}.tar.gz
+Patch0:		%{name}-no-version.patch
 URL:		http://xmms-kde.sourceforge.net/
 BuildRequires:	glib-devel >= 1.2.2
 BuildRequires:	gtk+-devel >= 1.2.2
@@ -36,7 +37,8 @@ konieczno¶ci prze³±czania siê na wirtualny pulpit, na którym dzia³a
 XMMS.
 
 %prep
-%setup -q -n xmmskde-3.0
+%setup -q -n xmmskde-%{version}
+%patch0 -p1
 
 %build
 CXXFLAGS="%{rpmcflags} -fno-exceptions -fno-rtti -fno-implicit-templates"
@@ -50,21 +52,18 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
+%find_lang xmmskde --with-kde
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post
-/sbin/ldconfig -n /usr/X11R6/lib/kde3
+%post   -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
 
-%postun
-/sbin/ldconfig -n /usr/X11R6/lib/kde3
-
-%files
+%files -f xmmskde.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README TODO doc/themes.txt
 %{_libdir}/kde3/libxmmskde.la
-%{_libdir}/kde3/libxmmskde.so.*.*
-%dir %{_datadir}/apps/xmms-kde
+%{_libdir}/kde3/libxmmskde.so
+%{_datadir}/apps/xmms-kde
 %{_datadir}/apps/kicker/applets/xmms-kde.desktop
-%{_datadir}/apps/xmms-kde/*
-%{_datadir}/doc/HTML/en/xmmskde/*
