@@ -13,7 +13,6 @@ Group:		X11/Applications/Sound
 Source0:	http://dl.sourceforge.net/xmms-kde/%{name}-%{version}.tar.gz
 # Source0-md5:	b6c2b44b753a565e83e5097e4249226d
 URL:		http://xmms-kde.sourceforge.net/
-BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	fam-devel
 BuildRequires:	glib-devel >= 1.2.2
@@ -22,11 +21,10 @@ BuildRequires:	kdelibs-devel >= 3.0.3
 BuildRequires:	libart_lgpl-devel
 BuildRequires:	libjpeg-devel
 BuildRequires:	qt-devel >= 3.0.5
+BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRequires:	smpeg-devel >= 0.4.2
 BuildRequires:	xmms-devel >= 1.2.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_htmldir	/usr/share/doc/kde/HTML
 
 %description
 XMMS panel applet for the KDE panel (kicker). It is used to be able
@@ -39,15 +37,14 @@ konieczno¶ci prze³±czania siê na wirtualny pulpit, na którym dzia³a
 XMMS.
 
 %prep
-%setup -q -n %{name}-%{version}
+%setup -q
 
 %build
-kde_htmldir=%{_htmldir}; export kde_htmldir
+kde_htmldir=%{_kdedocdir}; export kde_htmldir
 CXXFLAGS="%{rpmcflags} -fno-exceptions -fno-rtti -fno-implicit-templates"
 cp -f /usr/share/automake/config.sub admin
 %configure \
 	--with-qt-libraries=%{_libdir}
-
 
 %{__make}
 
@@ -68,7 +65,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README TODO doc/themes.txt
+%attr(755,root,root) %{_libdir}/kde3/libxmmskde.so
 %{_libdir}/kde3/libxmmskde.la
-%{_libdir}/kde3/libxmmskde.so
 %{_datadir}/apps/xmms-kde
 %{_datadir}/apps/kicker/applets/xmms-kde.desktop
