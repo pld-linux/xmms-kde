@@ -13,6 +13,8 @@ Group:		X11/Applications/Sound
 Source0:	http://dl.sourceforge.net/xmms-kde/%{name}-%{version}.tar.gz
 # Source0-md5:	b6c2b44b753a565e83e5097e4249226d
 URL:		http://xmms-kde.sourceforge.net/
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	fam-devel
 BuildRequires:	glib-devel >= 1.2.2
 BuildRequires:	gtk+-devel >= 1.2.2
@@ -42,6 +44,8 @@ XMMS.
 %build
 kde_htmldir=%{_htmldir}; export kde_htmldir
 CXXFLAGS="%{rpmcflags} -fno-exceptions -fno-rtti -fno-implicit-templates"
+cp -f /usr/share/automake/config.sub .
+%{__autoconf}
 %configure \
 	--with-qt-includes=%{_includedir}/qt
 
