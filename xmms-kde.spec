@@ -4,7 +4,7 @@ Summary:	XMMS - applet for controlling xmms from the KDE panel
 Summary(pl):	Aplet do kontrolowaniaa xmms z panelu KDE
 Name:		xmms-kde
 Version:	3.0.0
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL v2
 Vendor:		Flo Niebling <tranqlzer@users.sourceforge.net>
@@ -14,8 +14,8 @@ URL:		http://xmms-kde.sourceforge.net/
 BuildRequires:	glib-devel >= 1.2.2
 BuildRequires:	gtk+-devel >= 1.2.2
 BuildRequires:	libjpeg-devel
-BuildRequires:	kdelibs-devel >= 3.0
-BuildRequires:	qt-devel >= 2.1.1
+BuildRequires:	kdelibs-devel >= 3.0.3
+BuildRequires:	qt-devel >= 3.0.5
 BuildRequires:	smpeg-devel >= 0.4.2
 BuildRequires:	xmms-devel >= 1.2.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
