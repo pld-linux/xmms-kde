@@ -46,6 +46,8 @@ kde_htmldir=%{_htmldir}; export kde_htmldir
 CXXFLAGS="%{rpmcflags} -fno-exceptions -fno-rtti -fno-implicit-templates"
 cp -f /usr/share/automake/config.sub .
 %{__autoconf}
+%{__aclocal}
+%{__automake}
 %configure \
 	--with-qt-includes=%{_includedir}/qt
 
