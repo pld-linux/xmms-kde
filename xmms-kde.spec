@@ -9,13 +9,13 @@ Epoch:		1
 License:	GPL v2
 Vendor:		Flo Niebling <tranqlzer@users.sourceforge.net>
 Group:		X11/Applications/Sound
-Source0:	http://prdownloads.sourceforge.net/xmms-kde/xmmskde-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/xmms-kde/xmmskde-%{version}.tar.gz
 Patch0:		%{name}-no-version.patch
 URL:		http://xmms-kde.sourceforge.net/
 BuildRequires:	glib-devel >= 1.2.2
 BuildRequires:	gtk+-devel >= 1.2.2
-BuildRequires:	libjpeg-devel
 BuildRequires:	kdelibs-devel >= 3.0.3
+BuildRequires:	libjpeg-devel
 BuildRequires:	qt-devel >= 3.0.5
 BuildRequires:	smpeg-devel >= 0.4.2
 BuildRequires:	xmms-devel >= 1.2.0
