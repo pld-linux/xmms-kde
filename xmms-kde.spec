@@ -5,7 +5,7 @@ Summary:	XMMS - applet for controlling xmms from the KDE panel
 Summary(pl):	Aplet do kontrolowaniaa xmms z panelu KDE
 Name:		xmms-kde
 Version:	3.1
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL v2
 Vendor:		Flo Niebling <tranqlzer@users.sourceforge.net>
@@ -44,12 +44,10 @@ XMMS.
 %build
 kde_htmldir=%{_htmldir}; export kde_htmldir
 CXXFLAGS="%{rpmcflags} -fno-exceptions -fno-rtti -fno-implicit-templates"
-cp -f /usr/share/automake/config.sub .
-%{__autoconf}
-%{__aclocal}
-%{__automake}
+cp -f /usr/share/automake/config.sub admin
 %configure \
-	--with-qt-includes=%{_includedir}/qt
+	--with-qt-libraries=%{_libdir}
+
 
 %{__make}
 
