@@ -2,7 +2,7 @@
 # -separate packages with themes
 
 Summary:	XMMS - applet for controlling xmms from the KDE panel
-Summary(pl):	Aplet do kontrolowaniaa xmms z panelu KDE
+Summary(pl):	Aplet do kontrolowania xmms z panelu KDE
 Name:		xmms-kde
 Version:	3.1
 Release:	2
