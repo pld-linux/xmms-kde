@@ -12,6 +12,7 @@ License:	GPL v2
 Vendor:		Flo Niebling <tranqlzer@users.sourceforge.net>
 Group:		X11/Applications/Sound
 Source0:	http://dl.sourceforge.net/xmms-kde/%{name}-%{version}%{beta}.tar.gz
+# Source0-md5:	b42a1ecd5d1610609be5bbe13ab0efcd
 URL:		http://xmms-kde.sourceforge.net/
 BuildRequires:	fam-devel
 BuildRequires:	glib-devel >= 1.2.2
