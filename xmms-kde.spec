@@ -11,7 +11,7 @@ Group(pl):	X11/Zarz±dcy Okien/Narzêdzia
 Vendor:		Flo Niebling <tranqlzer@users.sourceforge.net>
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 License:	GPL
-Requires:	xmms kdelibs >= 2.0 qt2 >= 2.1.1 
+Requires:	xmms kdelibs >= 2.0 qt >= 2.1.1 
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
