@@ -5,7 +5,7 @@ Summary:	XMMS - applet for controlling xmms from the KDE panel
 Summary(pl):	Aplet do kontrolowaniaa xmms z panelu KDE
 Name:		xmms-kde
 Version:	3.1
-Release:	0.1
+Release:	1
 Epoch:		1
 License:	GPL v2
 Vendor:		Flo Niebling <tranqlzer@users.sourceforge.net>
@@ -31,8 +31,6 @@ XMMS panel applet for the KDE panel (kicker). It is used to be able
 to control XMMS without having to switch to the virtual desktop where
 XMMS is running.
 
-Email (author): tranqlzer@users.sourceforge.net
-
 %description -l pl
 Aplet XMMS dla panelu KDE (kickera). S³u¿y do kontrolowania XMMS bez
 konieczno¶ci prze³±czania siê na wirtualny pulpit, na którym dzia³a
@@ -52,7 +50,8 @@ CXXFLAGS="%{rpmcflags} -fno-exceptions -fno-rtti -fno-implicit-templates"
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %find_lang %{name} --with-kde
 
