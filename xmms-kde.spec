@@ -49,6 +49,9 @@ rm -rf $RPM_BUILD_ROOT
 
 gzip -9nf AUTHORS ChangeLog INSTALL README  TODO
 
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
+
 %clean 
 rm -rf $RPM_BUILD_ROOT 
 
@@ -56,33 +59,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc *.gz
 %{_libdir}/libxmmskde.la
-%{_libdir}/libxmmskde.so
-%{_libdir}/libxmmskde.so.1
-%{_libdir}/libxmmskde.so.1.0.0
+%{_libdir}/libxmmskde.so.*.*
 %dir %{_datadir}/apps/xmms-kde
 %{_datadir}/apps/kicker/applets/xmms-kde.desktop
-%{_datadir}/apps/xmms-kde/aluminum25.rc
-%{_datadir}/apps/xmms-kde/aluminum25.tgz
-%{_datadir}/apps/xmms-kde/aluminum42.rc
-%{_datadir}/apps/xmms-kde/aluminum42.tgz
-%{_datadir}/apps/xmms-kde/blueish.rc
-%{_datadir}/apps/xmms-kde/blueish.tgz
-%{_datadir}/apps/xmms-kde/horizontal25.rc
-%{_datadir}/apps/xmms-kde/horizontal25.tgz
-%{_datadir}/apps/xmms-kde/horizontalblue.rc
-%{_datadir}/apps/xmms-kde/horizontalblue.tgz
-%{_datadir}/apps/xmms-kde/noscreen.tgz
-%{_datadir}/apps/xmms-kde/icons.tgz
-%{_datadir}/apps/xmms-kde/small.rc
-%{_datadir}/apps/xmms-kde/small.tgz
-%{_datadir}/apps/xmms-kde/tiny.rc
-%{_datadir}/apps/xmms-kde/tiny.tgz
-%{_datadir}/apps/xmms-kde/vertical26.rc
-%{_datadir}/apps/xmms-kde/vertical26.tgz
-%{_datadir}/apps/xmms-kde/verticalblue.rc
-%{_datadir}/apps/xmms-kde/verticalblue.tgz
-%{_datadir}/apps/xmms-kde/wm60x26.rc
-%{_datadir}/apps/xmms-kde/wm60x26.tgz
-%{_datadir}/apps/xmms-kde/wm63x42.rc
-%{_datadir}/apps/xmms-kde/wm63x42.tgz
-%{_datadir}/apps/xmms-kde/xmms-kderc
+%{_datadir}/apps/xmms-kde/*
