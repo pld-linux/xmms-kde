@@ -6,18 +6,14 @@ Release:	2
 Epoch:		1
 License:	GPL
 Vendor:		Flo Niebling <tranqlzer@users.sourceforge.net>
-Group:		X11/Window Managers/Tools
-Group(de):	X11/Fenstermanager/Werkzeuge
-Group(pl):	X11/Zarz±dcy Okien/Narzêdzia
+Group:		X11/Applications/Multimedia
+Group(de):	X11/Applikationen/Multimedia
+Group(pl):	X11/Aplikacje/Multimedia
 Source0:	http://prdownloads.sourceforge.net/xmms-kde/%{name}-%{version}.tgz
-URL:		http://xmms-kde.sourceforge.net
-BuildRequires:	libstdc++-devel
-BuildRequires:	XFree86-devel
+URL:		http://xmms-kde.sourceforge.net/
 BuildRequires:	qt-devel
-BuildRequires:	zlib-devel
 BuildRequires:	kdelibs-devel
 BuildRequires:	xmms-devel
-BuildRequires:	libpng-devel
 BuildRequires:	libjpeg-devel
 Requires:	xmms
 Requires:	kdelibs >= 2.0
@@ -43,6 +39,7 @@ XMMS.
 %setup -q
 
 %build 
+CXXFLAGS="%{rpmcflags} -fno-exceptions -fno-rtti -fno-implicit-templates"
 %configure2_13 \
 	--with-qt-includes=%{_includedir}/qt
 
