@@ -23,6 +23,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
+%define		_htmldir	/usr/share/doc/kde/HTML
 
 %description
 XMMS panel applet for the KDE panel (kicker). It is used to be able
@@ -37,10 +38,11 @@ konieczno¶ci prze³±czania siê na wirtualny pulpit, na którym dzia³a
 XMMS.
 
 %prep
-%setup -q -n xmmskde-%{version}
+%setup -q -n xmmskde-3.0
 %patch0 -p1
 
 %build
+kde_htmldir=%{_htmldir}; export kde_htmldir
 CXXFLAGS="%{rpmcflags} -fno-exceptions -fno-rtti -fno-implicit-templates"
 %configure \
 	--with-qt-includes=%{_includedir}/qt
