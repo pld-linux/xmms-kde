@@ -1,0 +1,15 @@
+--- xmmskde-3.0/xmms-kde/Makefile.am~	Tue Sep 24 13:55:56 2002
++++ xmmskde-3.0/xmms-kde/Makefile.am	Tue Sep 24 13:55:56 2002
+@@ -7,10 +7,10 @@
+ SOSUBMINOR = 0  
+ 
+ # set the include path for X, qt and KDE
+-INCLUDES         = $(all_includes) @SMPEG_CFLAGS@ @XMMS_CFLAGS@
++INCLUDES         = $(all_includes) $(SMPEG_CFLAGS) $(XMMS_CFLAGS)
+ 
+ # the library search path. 
+-libxmmskde_la_LDFLAGS = $(KDE_RPATH) $(all_libraries) @SMPEG_LIBS@ @XMMS_LIBS@ -version-info 1:0:0 -module  -no-undefined -version-info $(SOMAJOR):$(SOMINOR):$(SOSUBMINOR) 
++libxmmskde_la_LDFLAGS = $(KDE_RPATH) $(all_libraries) $(SMPEG_LIBS) $(XMMS_LIBS) -module  -no-undefined
+ 
+ # the libraries to link against.
+ libxmmskde_la_LIBADD   = $(LIB_KFILE) $(LIB_KDEUI)
