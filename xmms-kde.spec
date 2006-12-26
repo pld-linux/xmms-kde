@@ -1,18 +1,19 @@
 # TODO:
-# -separate packages with themes
-
+# - separate packages with themes
+# - checking for idlib...
 Summary:	XMMS - applet for controlling XMMS from the KDE panel
 Summary(pl):	Aplet do kontrolowania XMMS-a z panelu KDE
 Name:		xmms-kde
-Version:	3.1
+Version:	3.2
 Release:	2
 Epoch:		1
 License:	GPL v2
-Vendor:		Flo Niebling <tranqlzer@users.sourceforge.net>
 Group:		X11/Applications/Sound
 Source0:	http://dl.sourceforge.net/xmms-kde/%{name}-%{version}.tar.gz
-# Source0-md5:	b6c2b44b753a565e83e5097e4249226d
+# Source0-md5:	7d5b69ce64650178d259faaf130fd88e
+Patch0:		kde-common-LD_quote.patch
 URL:		http://xmms-kde.sourceforge.net/
+BuildRequires:	amarok
 BuildRequires:	automake
 BuildRequires:	fam-devel
 BuildRequires:	glib-devel >= 1.2.2
@@ -27,8 +28,8 @@ BuildRequires:	xmms-devel >= 1.2.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-XMMS panel applet for the KDE panel (kicker). It is used to be able
-to control XMMS without having to switch to the virtual desktop where
+XMMS panel applet for the KDE panel (kicker). It is used to be able to
+control XMMS without having to switch to the virtual desktop where
 XMMS is running.
 
 %description -l pl
@@ -38,6 +39,7 @@ XMMS.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 kde_htmldir=%{_kdedocdir}; export kde_htmldir
