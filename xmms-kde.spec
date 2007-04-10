@@ -21,7 +21,7 @@ BuildRequires:	gtk+-devel >= 1.2.2
 BuildRequires:	kdelibs-devel >= 3.0.3
 BuildRequires:	libart_lgpl-devel
 BuildRequires:	libjpeg-devel
-BuildRequires:	qt-devel >= 3.0.5
+BuildRequires:	qt-devel >= 3:3.0.5
 BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRequires:	smpeg-devel >= 0.4.2
 BuildRequires:	xmms-devel >= 1.2.0
